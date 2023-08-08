@@ -11,6 +11,8 @@ const users = {
 // Folosește body-parser pentru a procesa corpul cererilor JSON
 app.use(bodyParser.json());
 
+app.use(express.static('E:/test'));
+
 
 // Ruta pentru a servi pagina de login
 app.get('/login', (req, res) => {
