@@ -22,5 +22,5 @@ app.get('/', (req, res) => {
 
 // Pornirea serverului pe portul 3000
 app.listen(3001, () => {
-    console.log('Serverul rulează pe portul 3000');
+    console.log('Serverul rulează pe portul 3001');
 });
