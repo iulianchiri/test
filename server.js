@@ -3,16 +3,30 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+// Baza de date în memorie
+const users = {
+    "admin": "password123"  // exemplu de utilizator și parolă
+};
+
 // Folosește body-parser pentru a procesa corpul cererilor JSON
 app.use(bodyParser.json());
 
+// Folosește body-parser pentru a procesa corpul cererilor JSON
+app.use(bodyParser.json());
+
+// Ruta pentru a servi pagina de login
+app.get('/login', (req, res) => {
+    res.sendFile('E:/test/login.html');
+});
+
 // Ruta pentru autentificare
 app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-
-  // Aici vom verifica dacă username-ul și parola sunt corecte
-  // Dacă sunt, vom returna un token de autentificare
-  // Altfel, vom returna o eroare
+    const { username, password } = req.body;
+    if (users[username] && users[username] === password) {
+        res.send('Autentificare reușită!');
+    } else {
+        res.send('Nume de utilizator sau parolă incorectă!');
+    }
 });
 
 // Ruta de bază
